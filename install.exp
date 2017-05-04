@@ -1,0 +1,11 @@
+#!/usr/bin/expect
+set timeout -1
+#exp_internal 1
+
+spawn "/root/com.nimbits/scripts/install.sh"
+expect "Do you accept the Oracle Binary Code license terms? \\\[yes/no\\\]" { send "yes\n" }
+expect -- "New password for the MySQL \"root\" user:" { send "nimbits\n" }
+expect -- "Repeat password for the MySQL \"root\" user:" { send "nimbits\n" }
+expect "Enter password:" { send "nimbits\n" }
+
+interact

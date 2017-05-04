@@ -1,0 +1,28 @@
+version: "2"
+services:
+  nimbits:
+    build: .
+    command: /bin/bash /opt/tomcat/bin/catalina.sh run
+    ports:
+     - "80:8080"
+
+    links:
+     - mysql
+
+    depends_on:
+     - mysql
+
+  mysql:
+    volumes:
+      - db_data:/data/mysql
+    image: mysql
+    environment:
+     MYSQL_ROOT_PASSWORD: nimbits
+     MYSQL_DATABASE: nimbits
+     MYSQL_USER: nimbits
+     MYSQL_PASSWORD: nimbits
+    ports:
+      - "3306:3306"
+
+volumes:
+    db_data:
