@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install git -y
 
-RUN git clone --progress --verbose https://github.com/bsautner/com.nimbits.git /root/com.nimbits
+RUN git clone --progress --verbose https://github.com/eshohet/com.nimbits.git /root/com.nimbits
 RUN cd /root/com.nimbits && git checkout ooma2 
 
 # INSTALLATION PORTION
